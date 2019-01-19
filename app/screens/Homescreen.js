@@ -5,8 +5,10 @@ import {
   StyleSheet,
   Alert,
   StatusBar,
-  FlatList
+  FlatList,
+  TouchableHighlight
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 export default class Homescreen extends Component {
   constructor(props) {
@@ -169,7 +171,8 @@ export default class Homescreen extends Component {
           name: obj.name,
           country: country,
           temp: Math.ceil(r.temp),
-          type: obj.weather[0].main
+          type: obj.weather[0].main,
+          desc: "Humidity:" + r.humidity + "% -" + obj.weather[0].main
         };
         newList.push(city);
 
@@ -217,29 +220,50 @@ export default class Homescreen extends Component {
           style={{ width: "100%" }}
           data={this.state.list}
           refreshing={this.state.refresh}
-          keyExtractor={
-            (item, index) => index.toString() 
-            
-          }
-          // onRefresh={this.loadNewTemps}
+          keyExtractor={(item, index) => index.toString()} // onRefresh={this.loadNewTemps}
           renderItem={({ item, index }) => (
-            <View style={styles.row}>
-              <Text
-                style={[
-                  this.getTempRange(item.temp) == 1 ? styles.cold : styles.temp,
-                  this.getTempRange(item.temp) == 2
-                    ? styles.medium
-                    : styles.temp,
-                  this.getTempRange(item.temp) == 3 ? styles.hot : styles.temp,
-                  this.getTempRange(item.temp) == 4 ? styles.vhot : styles.temp,
-                  ,
-                  styles.temp
+            <TouchableHighlight
+              underlayColor="white"
+              onPress={() => alert(item.desc)}
+            >
+              <LinearGradient
+                colors={[
+                  "#00FFFF",
+                  "#17C8FF",
+                  "#329BFF",
+                  "#4C64FF",
+                  "#6536FF",
+                  "#8000FF"
                 ]}
+                start={{ x: 0.0, y: 1.0 }}
+                end={{ x: 1.0, y: 1.0 }}
               >
-                {item.temp}C
-              </Text>
-              <Text style={styles.cityN}>{item.name}</Text>
-            </View>
+               
+                <View style={styles.row}>
+                  <Text
+                    style={[
+                      this.getTempRange(item.temp) == 1
+                        ? styles.cold
+                        : styles.temp,
+                      this.getTempRange(item.temp) == 2
+                        ? styles.medium
+                        : styles.temp,
+                      this.getTempRange(item.temp) == 3
+                        ? styles.hot
+                        : styles.temp,
+                      this.getTempRange(item.temp) == 4
+                        ? styles.vhot
+                        : styles.temp,
+                      ,
+                      styles.temp
+                    ]}
+                  >
+                    {item.temp}C
+                  </Text>
+                  <Text style={styles.cityN}>{item.name}</Text>
+                </View>
+              </LinearGradient>
+            </TouchableHighlight>
           )}
         />
       </View>
