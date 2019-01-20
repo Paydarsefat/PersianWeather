@@ -206,6 +206,34 @@ export default class Homescreen extends Component {
       return 4;
     }
   };
+
+  getEmoji = type => {
+    if (type == "Clouds") {
+      return "☁️";
+    }
+    if (type == "Clear") {
+      return "☼";
+    }
+    if (type == "Haze") {
+      return "⛅";
+    }
+    if (type == "Thunderstorm") {
+      return "🌩";
+    }
+    if (type == "Rain") {
+      return "🌧";
+    }
+    if (type == "Snow") {
+      return "❄";
+    }
+    if (type == "Mist") {
+      return "🌁"; 
+    }
+    if (type == "Fog") {
+      return "🌁";
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -220,25 +248,27 @@ export default class Homescreen extends Component {
           style={{ width: "100%" }}
           data={this.state.list}
           refreshing={this.state.refresh}
-          keyExtractor={(item, index) => index.toString()} // onRefresh={this.loadNewTemps}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => (
             <TouchableHighlight
               underlayColor="white"
-              onPress={() => alert(item.desc)}
+              onPress={
+                () => alert(item.desc) // onRefresh={this.loadNewTemps}
+              }
             >
               <LinearGradient
                 colors={[
                   "#00FFFF",
-                  "#17C8FF",
-                  "#329BFF",
-                  "#4C64FF",
-                  "#6536FF",
-                  "#8000FF"
+                  "#C0C0C0"
+                  // ,
+                  // "#329BFF",
+                  // "#4C64FF",
+                  // "#6536FF",
+                  // "#8000FF"
                 ]}
                 start={{ x: 0.0, y: 1.0 }}
                 end={{ x: 1.0, y: 1.0 }}
               >
-               
                 <View style={styles.row}>
                   <Text
                     style={[
@@ -258,7 +288,7 @@ export default class Homescreen extends Component {
                       styles.temp
                     ]}
                   >
-                    {item.temp}C
+                    {item.temp}°C {this.getEmoji(item.type)}
                   </Text>
                   <Text style={styles.cityN}>{item.name}</Text>
                 </View>
@@ -272,7 +302,7 @@ export default class Homescreen extends Component {
 }
 const styles = StyleSheet.create({
   cold: { color: "blue" },
-  hot: { color: "orange" },
+  hot: { color: "#FF8C00" },
   medium: { color: "green" },
   vhot: { color: "red" },
   temp: {
