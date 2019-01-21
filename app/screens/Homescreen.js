@@ -288,7 +288,7 @@ export default class Homescreen extends Component {
                       styles.temp
                     ]}
                   >
-                    {item.temp}°C {this.getEmoji(item.type)}
+                    {this.getEmoji(item.type)} {item.temp}°C 
                   </Text>
                   <Text style={styles.cityN}>{item.name}</Text>
                 </View>

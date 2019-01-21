@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-import { createStackNavigator, createAppContainer} from "react-navigation";
+import { createBottomTabNavigator, createAppContainer} from "react-navigation";
 import HomeScreen from './app/screens/Homescreen.js';
 import Detialscreen from './app/screens/Detialscreen';
+import Searchscreen from "./app/screens/Searchscreen.js";
 
-const App = createStackNavigator(
+const App = createBottomTabNavigator(
   {
     Home: { screen: HomeScreen },
-    Detial: { screen: Detialscreen }
+    Detial: { screen: Detialscreen },
+    Search : {screen:Searchscreen}
   },
   {
     initialRouteName: "Home",
