@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Dimensions,
   TextInput,
   Text,
   View,
@@ -115,28 +116,83 @@ export default class Searchscreen extends Component {
   };
 
   render() {
-    return <View style={styles.container}>
+    return (
+      <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Text style={styles.title}>CityWeather </Text>
         <View style={{ alignItems: "center", width: "90%" }}>
-          <Text style={{ textAlign: "center", lineHeight: 20, padding: 5, fontSize: 16 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              lineHeight: 20,
+              padding: 5,
+              fontSize: 16
+            }}
+          >
             Search for city
           </Text>
-          <TextInput onChangeText={text => this.setState({
+          <TextInput
+            onChangeText={text =>
+              this.setState({
                 searchInput: text
-              })} value={this.state.searchInput} style={{ width: "80%", padding: 15, margin: 5, backgroundColor: "black", color: "white" }} />
-          <TouchableHighlight style={{ backgroundColor: "grey", padding: 20, borderRadius: 8 }} onPress={() => this.searchCity()}>
-            <Text style={{ fontSize: 14, color: "white" }}>search</Text>
+              })
+            }
+            value={this.state.searchInput}
+            style={{
+              width: "80%",
+              padding: 14,
+              borderRadius: 8,
+              margin: 5,
+              backgroundColor: "#778ca3",
+              color: "white"
+            }}
+          />
+          <TouchableHighlight
+            style={{ backgroundColor: "grey", padding: 16, borderRadius: 8 }}
+            onPress={() => this.searchCity()}
+          >
+            <Text style={{ fontSize: 12, color: "white" }}>search</Text>
           </TouchableHighlight>
         </View>
 
-        {this.state.searchResult == 1 ? <View style={{ marginTop: 15, justifyContent: "center", alignItems: "flex-start" }}>
-            <TouchableHighlight underlayColor="white" onPress={() => this.setState(
-                  { newAlert: 1, alertMsg: this.state.item.desc }
-                )}>
-              <LinearGradient colors={["#00FFFF", "#C0C0C0"]} start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}>
+        {this.state.searchResult == 1 ? (
+          <View
+            style={{
+              marginTop: 15,
+              justifyContent: "center",
+              alignItems: "flex-start"
+            }}
+          >
+            <TouchableHighlight
+              underlayColor="white"
+              onPress={() =>
+                this.setState({ newAlert: 1, alertMsg: this.state.item.desc })
+              }
+            >
+              <LinearGradient
+                colors={["#00FFFF", "#C0C0C0"]}
+                start={{ x: 0.0, y: 1.0 }}
+                end={{ x: 1.0, y: 1.0 }}
+              >
                 <View style={styles.row}>
-                  <Text style={[this.getTempRange(this.state.item.temp) == 1 ? styles.cold : styles.temp, this.getTempRange(this.state.item.temp) == 2 ? styles.medium : styles.temp, this.getTempRange(this.state.item.temp) == 3 ? styles.hot : styles.temp, this.getTempRange(this.state.item.temp) == 4 ? styles.vhot : styles.temp, , styles.temp]}>
+                  <Text
+                    style={[
+                      this.getTempRange(this.state.item.temp) == 1
+                        ? styles.cold
+                        : styles.temp,
+                      this.getTempRange(this.state.item.temp) == 2
+                        ? styles.medium
+                        : styles.temp,
+                      this.getTempRange(this.state.item.temp) == 3
+                        ? styles.hot
+                        : styles.temp,
+                      this.getTempRange(this.state.item.temp) == 4
+                        ? styles.vhot
+                        : styles.temp,
+                      ,
+                      styles.temp
+                    ]}
+                  >
                     {this.getEmoji(this.state.item.type)} {this.state.item.temp}
                     °C
                   </Text>
@@ -144,18 +200,58 @@ export default class Searchscreen extends Component {
                 </View>
               </LinearGradient>
             </TouchableHighlight>
-          </View> : <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          </View>
+        ) : (
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
             <Text>{this.state.error}</Text>
-          </View>}
-        {this.state.newAlert == 1 ? <View style={{ padding: 5, flex: 1, justifyContent: "center", alignItems: "center", position: "absolute", top: 0, left: 0, height: "100%", width: "100%" }}>
+          </View>
+        )}
+        {this.state.newAlert == 1 ? (
+          <View
+            style={{
+              padding: 5,
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              height: "100%",
+              width: "100%"
+            }}
+          >
             <View style={{ width: "65%", height: 90 }}>
-              <LinearGradient style={{ padding: 5, shadowColor: "black", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 2, justifyContent: "space-between", flex: 1, borderRadius: 20 }} colors={["#FFFFFF", "blue"]} start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}>
-                <Text style={{ fontSize: 16, color: "white", padding: 10, textAlign: "center" }}>
+              <LinearGradient
+                style={{
+                  padding: 5,
+                  shadowColor: "black",
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 2,
+                  justifyContent: "space-between",
+                  flex: 1,
+                  borderRadius: 20
+                }}
+                colors={["#FFFFFF", "blue"]}
+                start={{ x: 0.0, y: 1.0 }}
+                end={{ x: 1.0, y: 1.0 }}
+              >
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: "white",
+                    padding: 10,
+                    textAlign: "center"
+                  }}
+                >
                   {this.state.alertMsg}
                 </Text>
-                <TouchableHighlight underlayColor="white" onPress={() => this.setState(
-                      { alertMsg: "", newAlert: 0 }
-                    )}>
+                <TouchableHighlight
+                  underlayColor="white"
+                  onPress={() => this.setState({ alertMsg: "", newAlert: 0 })}
+                >
                   <Text
                     style={{
                       fontWeight: "bold",
@@ -169,8 +265,12 @@ export default class Searchscreen extends Component {
                 </TouchableHighlight>
               </LinearGradient>
             </View>
-          </View> : <View />}
-      </View>;
+          </View>
+        ) : (
+          <View />
+        )}
+      </View>
+    );
   }
 }
 const styles = StyleSheet.create({
@@ -193,7 +293,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flex: 1,
-    width: 375,
+    width: Dimensions.get("window").width,
     paddingVertical: 25,
     paddingHorizontal: 15,
     flexDirection: "row",

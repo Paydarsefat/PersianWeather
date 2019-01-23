@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Dimensions,
   Text,
   View,
   StyleSheet,
@@ -227,7 +228,7 @@ export default class Homescreen extends Component {
       return "❄";
     }
     if (type == "Mist") {
-      return "🌁"; 
+      return "🌁";
     }
     if (type == "Fog") {
       return "🌁";
@@ -245,10 +246,15 @@ export default class Homescreen extends Component {
         {/* <Button title="Alert Button" onPress={this.showAlert} /> */}
         <Text style={styles.title}>CityWeather </Text>
         <FlatList
-          style={{ width: "100%" }}
+          style={{
+            backgroundColor: "red",
+            width: "100%",
+            height: Dimensions.get("window").height / 2
+          }}
           data={this.state.list}
           refreshing={this.state.refresh}
           keyExtractor={(item, index) => index.toString()}
+          inverted={true}
           renderItem={({ item, index }) => (
             <TouchableHighlight
               underlayColor="white"
@@ -288,7 +294,7 @@ export default class Homescreen extends Component {
                       styles.temp
                     ]}
                   >
-                    {this.getEmoji(item.type)} {item.temp}°C 
+                    {this.getEmoji(item.type)} {item.temp}°C
                   </Text>
                   <Text style={styles.cityN}>{item.name}</Text>
                 </View>
@@ -331,7 +337,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    flex: 1
+    height: Dimensions.get("window").height / 2
   },
   title: {
     width: "100%",
