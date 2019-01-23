@@ -14,7 +14,7 @@ import LinearGradient from "react-native-linear-gradient";
 export default class Homescreen extends Component {
   constructor(props) {
     super(props);
-    // var navigation = this.props.navigation;
+    var navigation = this.props.navigation;
     this.state = {
       cities: [
         {
@@ -254,7 +254,7 @@ export default class Homescreen extends Component {
           data={this.state.list}
           refreshing={this.state.refresh}
           keyExtractor={(item, index) => index.toString()}
-          inverted={true}
+          inverted={false}
           renderItem={({ item, index }) => (
             <TouchableHighlight
               underlayColor="white"
