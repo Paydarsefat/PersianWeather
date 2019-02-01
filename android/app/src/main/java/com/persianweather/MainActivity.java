@@ -5,6 +5,12 @@ import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
+import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
+import com.sensormanager.SensorManagerPackage;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -15,6 +21,12 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "PersianWeather";
     }
+     protected List<ReactPackage> getPackages() {
+       return Arrays.<ReactPackage>asList(
+         new MainReactPackage(), // <---- add comma
+         new SensorManagerPackage() // <---------- add package
+       );
+     }
       @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
      return new ReactActivityDelegate(this, getMainComponentName()) {
@@ -22,6 +34,9 @@ public class MainActivity extends ReactActivity {
       protected ReactRootView createRootView() {
       return new RNGestureHandlerEnabledRootView(MainActivity.this);
      }
+
    };
  }
+
+ 
 }

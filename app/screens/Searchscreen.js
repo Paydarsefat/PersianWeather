@@ -17,10 +17,11 @@ export default class Searchscreen extends Component {
     var navigation = this.props.navigation;
     this.state = {
       newAlert: 0,
-      searchInput: "",
+      searchInput: '',
       searchResult: 0,
       error: "Search for a city .....",
-      item: {}
+      item: {},
+      textInputp: "شهر مورد نظر خود را جستجو کنید "
     };
 
     // this.fetchCityTemp("mashhad", "IR");
@@ -118,8 +119,8 @@ export default class Searchscreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <Text style={styles.title}>CityWeather </Text>
-        <View style={{ alignItems: "center", width: "90%" }}>
+        <Text style={styles.title}>آب و هوای شهرها </Text>
+        <View style={{ alignItems: "center", width: "100%" }}>
           <Text
             style={{
               textAlign: "center",
@@ -128,9 +129,12 @@ export default class Searchscreen extends Component {
               fontSize: 16
             }}
           >
-            Search for city
+            شهر مورد نظر خود را جستجو کنید
           </Text>
           <TextInput
+            placeholder={this.state.textInputp}
+            placeholderTextColor="white"
+            onKeyPress={() => this.searchCity()}
             onChangeText={text =>
               this.setState({
                 searchInput: text
@@ -138,26 +142,27 @@ export default class Searchscreen extends Component {
             }
             value={this.state.searchInput}
             style={{
-              width: "80%",
+              width: "100%",
               padding: 14,
               borderRadius: 8,
               margin: 5,
               backgroundColor: "#778ca3",
-              color: "white"
+              color: "white",
+              textAlign: "right"
             }}
           />
-          <TouchableHighlight
+          {/* <TouchableHighlight
             style={{ backgroundColor: "grey", padding: 16, borderRadius: 8 }}
             onPress={() => this.searchCity()}
           >
-            <Text style={{ fontSize: 12, color: "white" }}>search</Text>
-          </TouchableHighlight>
+             <Text style={{ fontSize: 12, color: "white" }}>search</Text> 
+          </TouchableHighlight> */}
         </View>
 
         {this.state.searchResult == 1 ? (
           <View
             style={{
-              marginTop: 15,
+              marginTop: 2,
               justifyContent: "center",
               alignItems: "flex-start"
             }}
@@ -165,7 +170,10 @@ export default class Searchscreen extends Component {
             <TouchableHighlight
               underlayColor="white"
               onPress={() =>
-                this.setState({ newAlert: 1, alertMsg: this.state.item.desc })
+                this.setState({
+                  newAlert: 1,
+                  alertMsg: this.state.item.desc
+                })
               }
             >
               <LinearGradient
@@ -192,7 +200,8 @@ export default class Searchscreen extends Component {
                       styles.temp
                     ]}
                   >
-                    {this.getEmoji(this.state.item.type)} {this.state.item.temp}
+                    {this.getEmoji(this.state.item.type)}{" "}
+                    {this.state.item.temp}
                     °C
                   </Text>
                   <Text style={styles.cityN}>{this.state.item.name}</Text>
@@ -202,7 +211,11 @@ export default class Searchscreen extends Component {
           </View>
         ) : (
           <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center"
+            }}
           >
             <Text>{this.state.error}</Text>
           </View>
@@ -249,7 +262,9 @@ export default class Searchscreen extends Component {
                 </Text>
                 <TouchableHighlight
                   underlayColor="white"
-                  onPress={() => this.setState({ alertMsg: "", newAlert: 0 })}
+                  onPress={() =>
+                    this.setState({ alertMsg: "", newAlert: 0 })
+                  }
                 >
                   <Text
                     style={{

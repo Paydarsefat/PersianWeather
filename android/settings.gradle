@@ -1,7 +1,11 @@
 rootProject.name = 'PersianWeather'
+include ':react-native-sensors'
+project(':react-native-sensors').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sensors/android')
 include ':react-native-linear-gradient'
 project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
 include ':react-native-gesture-handler'
 project(':react-native-gesture-handler').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-gesture-handler/android')
 
 include ':app'
+include ':react-native-sensor-manager'
+project(':react-native-sensor-manager').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sensor-manager/android')

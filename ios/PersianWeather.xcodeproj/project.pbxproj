@@ -39,6 +39,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		2566D9D34A96483FB2DE2170 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E5F5326905400284551A9A /* libRNGestureHandler.a */; };
 		2556DBE75A9640C385DB0E40 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4C1AB522BD4F9EB9ED3394 /* libBVLinearGradient.a */; };
+		29CB155225E14839B48D9015 /* libRNSensors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849A7957E7554045BF1788C1 /* libRNSensors.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +349,8 @@
 		C7E5F5326905400284551A9A /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		ECFC3901023144DC87D736BA /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		AB4C1AB522BD4F9EB9ED3394 /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		3D27335FBADB43A8BF6E1ABF /* RNSensors.xcodeproj */ = {isa = PBXFileReference; name = "RNSensors.xcodeproj"; path = "../node_modules/react-native-sensors/ios/RNSensors.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		849A7957E7554045BF1788C1 /* libRNSensors.a */ = {isa = PBXFileReference; name = "libRNSensors.a"; path = "libRNSensors.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +380,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				2566D9D34A96483FB2DE2170 /* libRNGestureHandler.a in Frameworks */,
 				2556DBE75A9640C385DB0E40 /* libBVLinearGradient.a in Frameworks */,
+				29CB155225E14839B48D9015 /* libRNSensors.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +569,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				5DF1AA342A644D798392F30C /* RNGestureHandler.xcodeproj */,
 				ECFC3901023144DC87D736BA /* BVLinearGradient.xcodeproj */,
+				3D27335FBADB43A8BF6E1ABF /* RNSensors.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1194,11 +1199,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Debug;
@@ -1222,11 +1229,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Release;
@@ -1251,6 +1260,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Debug;
@@ -1274,6 +1284,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Release;
@@ -1305,11 +1316,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Debug;
@@ -1341,11 +1354,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Release;
@@ -1376,11 +1391,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Debug;
@@ -1411,11 +1428,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios",
 				);
 			};
 			name = Release;

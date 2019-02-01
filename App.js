@@ -9,7 +9,7 @@ const App = createBottomTabNavigator(
   {
     Home: { screen: HomeScreen },
     Detial: { screen: Detialscreen },
-    Search : {screen:Searchscreen}
+    جستجو : {screen:Searchscreen}
   },
   {
     initialRouteName: "Home",
