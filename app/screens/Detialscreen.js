@@ -53,7 +53,7 @@ export default class Detialscreen extends Component {
     //   </View>;
     return (
       <WebView
-        source={{ uri: 'https://github.com/facebook/react-native' }}
+        source={{ uri: 'https://salamati24.com' }}
         style={{ marginTop: 20 }}
       />
     );
